@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, #000 30%, #1a1a40 90%);
+  color: #fff;
+  text-align: center;
+}
+
+/* Galaxia con más brillo */
+.galaxy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  animation: twinkle 8s infinite linear;
+  z-index: -2;
+}
+
+@keyframes twinkle {
+  0% { background-position: 0 0; opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { background-position: 2000px 2000px; opacity: 0.8; }
+}
+
+/* Mensaje arriba */
+.message {
+  margin-top: 2vh;
+  font-size: 2rem;
+  text-shadow: 0 0 10px gold, 0 0 20px yellow, 0 0 40px orange;
+  animation: shine 2s infinite alternate;
+  z-index: 2;
+  position: relative;
+}
+
+@keyframes shine {
+  from { text-shadow: 0 0 10px yellow; }
+  to { text-shadow: 0 0 30px gold, 0 0 60px orange; }
+}
+
+/* Imagen del ramo */
+.ramo {
+  width: 250px;
+  max-width: 80%;
+  animation: float 3s infinite ease-in-out;
+  margin-top: 2vh;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Botón */
+#fireworksBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff69b4;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493;
+  transition: transform 0.2s;
+  z-index: 5;
+}
+
+#fireworksBtn:hover {
+  transform: scale(1.1);
+}
+
+/* Canvas de fuegos */
+canvas#fireworksCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Corazones pastel */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: pink;
+  transform: rotate(-45deg);
+  opacity: 0.9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255,192,203,0.7);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(-45deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(-45deg); opacity: 0; }
+}
